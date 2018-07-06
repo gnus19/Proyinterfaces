@@ -1,0 +1,269 @@
+<html>
+	<head>
+		<title> Valor Nutricional</title>
+		<style type="text/css">
+			*{
+				padding: 0px;
+				margin:0px;
+			}
+			#header{
+				
+				margin:auto;
+				width:650px;
+				font-family:Arial, Helvetica, sans-serif;
+			}
+			
+			ul, ol {
+				list-style:none;
+				}
+			.nav li a {
+				background-color:#C8FBAC;
+				color:#3F990E;
+				text-decoration:none;
+				padding:10px 15px;
+				display:block;
+			}
+			
+			.nav li a:hover {
+				color:#CE7D35;
+				background-color:#434343;
+			}
+			
+			.nav > li {
+				float:left;
+			}
+			
+			.nav li ul{
+				display:none;
+				position:absolute;
+				min-width:140px;
+			}
+			
+			.nav li:hover > ul {
+				display:block;
+			}
+			
+			.nav li ul li {
+				position:relative;
+			}
+			
+			.nav li ul li ul {
+				right:-140px;
+				top:0px;
+			}
+			.contenedor{
+			
+				width: 600px;
+				min-height: 200px;
+				background-color:#FDD77A;
+				margin: 0 auto;
+				border: 1px solid black;
+				padding:10px;
+				position:left;
+			}
+			/* Contenedor general y reset de margin y padding */
+				.expandir * {
+				margin: 0;
+				padding: 0;
+				}
+				.expandir {
+				font-family:Arial, Helvetica, sans-serif;
+				line-height:normal;
+				margin:20px auto 30px;
+				height:250px;
+				width:250px;
+				}
+				/* Las imágenes irán en forma de lista */
+				.expandir ul {
+				padding-top:10px;
+				margin-left:10px;
+				}
+				/* Se hacen flotar los elementos para que queden en línea y se elimina el estilo que podría haber predefinido para listas */
+				.expandir ul li {
+				float:left;
+				list-style-type:none;
+				}
+				/* Anulamos estilo predifinido para enlaces en listas */
+				.expandir ul li a {
+				text-decoration:none;
+				}
+				/* Estilo de cada imagen en situación inicial y transición suave */
+				.expandir ul li a img {
+				width:32px; /* Ancho inicial imagénes. 50% real */
+				height:32px; /* Alto inicial imagénes. 50% real */
+				border:none;
+				-webkit-transition: all .3s ease-in;
+				-moz-transition: all .3s ease-in;
+				-o-transition: all .3s ease-in;
+				-ms-transition: all .3s ease-in;
+				transition: all .3s ease-in;
+				}
+				/* El texto que acompaña a las imágenes no se ve inicialmente */
+				.expandir ul li a span {
+				display:none;
+				}
+				/* Mostramos el texto al hacer hover */
+				.expandir ul li:hover a span {
+				display:block;
+				font-size:14px;
+				text-align:center;
+				color:#000;
+				}
+				/* Agrandamos la imagen al hacer hover */
+				.expandir ul li:hover a img {
+				width:64px;
+				height:64px;
+				-webkit-transition: all .3s ease-in-out;
+				-moz-transition: all .3s ease-in-out;
+				-o-transition: all .3s ease-in-out;
+				-ms-transition: all .3s ease-in-out;
+				transition: all .3s ease-in-out;
+				}
+			
+			.circular-square {
+				border-radius: 50%;
+			}	
+		</style>
+	</head>
+	
+	<body  background="imagenes/fondo.jpg" height= "200" width="200">
+		<p>
+		<br><br><br>
+			<center><img src="imagenes/titulo.png"/></center>
+		</p>
+		
+		<CENTER><div id="header">
+		
+				<br>
+				<br>
+				<ul class="nav">
+					<li><a href=""> INICIO </a></li>
+					
+					<li><a href=""> SOBRE NOSOTROS </a>
+						<ul>
+							<li><a href=""> Nuestro público </a></li>
+							<li><a href=""> Sobre el Autismo</a></li>
+							<li><a href=""> Datos curiosos </a></li>
+							<li><a href=""> Nutrición </a></li>
+						</ul>
+					</li>
+					
+					<li><a href=""> JUEGOS </a>
+						<ul>
+							<li><a href=""> Intrucciones </a></li>
+							<li><a href=""> Juegos </a>
+								<ul>
+									<li><a href=""> Basado en movimiento </a></li>
+									<li><a href=""> Neuro FeedBack</a></li>
+									<li><a href=""> Sensoriales </a></li>
+									<li><a href=""> Lingüistica</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li><a href=""> ESTADISTICAS </a></li>
+					<li><a href=""> PERFIL</a></li>
+				</u>
+		</div>
+		</CENTER>
+		<br>
+		<br>
+		<br>
+		<center><img class="circular-square" src="imagenes/dieta1.jpg"  /></center>
+		
+		<br>
+		<br>
+		<div class="contenedor" >
+			
+			<h1><center><FONT SIZE="7"><FONT COLOR="5ADF13">DIETA</FONT></FONT></center></h1>
+				
+				<div ALIGN="justify"><p> Para la mayoría de personas autistas o hiperactivas los 
+					productos lácteos, que contienen caseína y los cereales que 
+					contienen gluten como la avena, cebada y trigo, no pueden 
+					ser metabolizados debido a una deficiencia enzimática. 
+					Aún existe controversia frente a los efectos de la supresión 
+					de gluten y lácteos en la dieta.
+				</div>
+				<br>
+				<div ALIGN="justify"><p> Es muy común también encontrar deficiencias de algunas vitaminas
+				y minerales como las vitaminas del complejo B, magnesio, calcio y hierro.
+				</div>
+				</p>
+				<br>
+				<div ALIGN="justify"> <p>Antes de realizar modificaciones en la alimentación de personas con 
+				este trastorno es indispensable hacer las pruebas necesarias que diagnostiquen
+				el tipo de alergia o deficiencia que presentan, para ser utilizado como base en
+				 la elaboración de un plan alimenticio.
+				</div>
+				<br>
+				<div ALIGN="justify"><p> A la hora de establecer una dieta balanceada para niños autistas es importante 
+				tomar en cuenta que todos los niños tienen diferentes necesidades, ya que cada uno 
+				presenta un patrón individual de crecimiento de acuerdo a su sexo, actividad física, 
+				estado de salud, edad y apetito.
+				</div>
+				<div ALIGN="justify"><p> Además, son niños que les gusta repetir ciertos comportamientos y que no desean 
+				cambios en sus actividades diarias, en este sentido la alimentación juega un papel importante, ya que es probable que rechace variedad de textura y colores, que presente comportamientos rituales relacionados con la comida y que tenga períodos con ingestión de un solo tipo de alimento.
+				</div>
+				<br>
+				<P><B>Importante: </B></p>
+				<br>
+				<li>La pica es un problema frecuente.</li>
+				<li>Es muy probable que sean melindres. </li>
+				<li>Degluten sin masticar, por lo que se deben seleccionar alimentos, texturas y tamaños que eviten el atragantamiento.</li>
+				<li>Respetar las texturas y sabores que el niño desee.</li>
+				<li>Prevenir la sobrecarga sensorial.</li>
+				<br>
+				<P><B>Alimentos: </B></p><br>
+				<P><I><U>-Cereales y derivados (vitaminas del complejo B):</I></U></p>
+				
+				<li>Se eliminan: trigo, cebada, centeno y avena.</li>
+				<li>Se recomiendan: maíz, arroz, tapioca y amaranto.</li><br>
+				<P> <I><U>-Grasas (omega 3)</I></U></p><br>
+				<li>Aceite de oliva o de canola, aguacate, oleaginosas 
+				(nueces, almendras, maní, etc) mayonesa, mantequilla y aceitunas.</li><br>
+				<P><I><U> -Proteína de origen animal</I></U></p><br>
+				
+				<li>Se eliminan: leche de vaca, yogurt y quesos.</li>
+				<li>Se recomiendan: carnes, pescado, aves y huevo.</li><br>
+				<P> <I><U>-Proteína de origen vegetal</I></U></p><br>
+				
+				<li>Se recomienda: leguminosas (frijoles, garbanzos, lentejas)</li><br>
+				<P><I><U>-Frutas y vegetales</I></U></p><br>
+				
+				<li>Ricas en vitamina C: toronja, naranja, tomate (enteros o en jugo), col
+				cruda, chile dulce y fresas. De color verde o muy amarilla, ricas en vitamina 
+				A: espinaca, berros, acelgas, melón, zanahoria.</li><br>
+				<P><I><U>-Alimentos ricos en calcio:</I></U></p><br>
+				
+				<li>Almendras. Nueces, avellanas, ajonjolí.</li>
+				<li>Leguminosas: garbanzos, lentejas, frijoles, habas, soya.</li>
+				<li>Pescados como el salmón y la sardina.</li>
+				<li>Yema de huevo.</li>
+				<li>Brócoli, col y coliflor.</li>
+				<li>Vegetales de hoja verde: espinacas, hojas de mostaza.</li>
+				
+		</div>
+				
+				
+				
+				
+				
+				<div class="expandir">
+				<P><B>Siguenos en nuestras redes: </B></p>
+					<ul> 
+						<li><a href="URL_Destino1"><img src="https://3.bp.blogspot.com/-eGu2x_YLqKU/T1kGDFwznoI/AAAAAAAAB_w/NS5i4Hqxap4/s400/nav-facebook.png"/><span>FACEBOOK</span></a></li>
+						<li><a href="URL_Destino2"><img src="https://2.bp.blogspot.com/-w3_KpmEDVzM/T1kGD9inLtI/AAAAAAAACAg/tuPkIH5aZrQ/s400/nav-twitter.png"/><span>TWITTER</span></a></li>
+						<li><a href="URL_Destino3"><img src="https://4.bp.blogspot.com/-AzwYElFbe0k/T1ksg16heiI/AAAAAAAACA4/Ft2bKsyl4oE/s400/nav-google2.png"/><span>GOOGLE PLUS</span></a></li>
+						<li><a href="URL_Destino4"><img src="https://3.bp.blogspot.com/-w_v6EZR3zNc/T1kGDd-S9RI/AAAAAAAAB_4/gI2ANh3lvZ0/s400/nav-linkedin.png"/><span>LINKEDIN</span></a></li>
+						<li><a href="URL_Destino4"><img src="https://4.bp.blogspot.com/-ZsJYr_1jqSc/T1kshWqfRSI/AAAAAAAACBQ/KLB6asXBGrE/s400/nav-youtube.png"/><span>YOUTUBE</span></a></li>
+						<li><a href="URL_Destino4"><img src="https://4.bp.blogspot.com/-w1htIE08Ew4/T1kGDhMCrKI/AAAAAAAACAQ/L2hlwp1qYio/s400/nav-rss.png"/><span>RSS</span></a></li>
+					</ul>
+				</div>
+				
+				
+				
+			
+		
+	</body>
+	
+</html>

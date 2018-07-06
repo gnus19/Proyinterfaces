@@ -1,0 +1,394 @@
+<html>
+	<head>
+		<title> Datos curiosos</title>
+		<style type="text/css">
+			*{
+				padding: 0px;
+				margin:0px;
+			}
+			#header{
+				
+				margin:auto;
+				width:650px;
+				font-family:Arial, Helvetica, sans-serif;
+			}
+			
+			ul, ol {
+				list-style:none;
+				}
+			.nav li a {
+				background-color:#FFFFFF;
+				color:#000000;
+				text-decoration:none;
+				padding:10px 15px;
+				display:block;
+			}
+			
+			.nav li a:hover {
+				color:#CE7D35;
+				background-color:#434343;
+			}
+			
+			.nav > li {
+				float:left;
+			}
+			
+			.nav li ul{
+				display:none;
+				position:absolute;
+				min-width:140px;
+			}
+			
+			.nav li:hover > ul {
+				display:block;
+			}
+			
+			.nav li ul li {
+				position:relative;
+			}
+			
+			.nav li ul li ul {
+				right:-140px;
+				top:0px;
+			}
+			.contenedor{
+			
+				width: 600px;
+				min-height: 200px;
+				background-color:#FDD77A;
+				margin: 0 auto;
+				border: 1px solid black;
+				padding:10px;
+				position:left;
+			}
+			/* Contenedor general y reset de margin y padding */
+				.expandir * {
+				margin: 0;
+				padding: 0;
+				}
+				.expandir {
+				font-family:Arial, Helvetica, sans-serif;
+				line-height:normal;
+				margin:20px auto 30px;
+				height:250px;
+				width:250px;
+				}
+				/* Las imágenes irán en forma de lista */
+				.expandir ul {
+				padding-top:10px;
+				margin-left:10px;
+				}
+				/* Se hacen flotar los elementos para que queden en línea y se elimina el estilo que podría haber predefinido para listas */
+				.expandir ul li {
+				float:left;
+				list-style-type:none;
+				}
+				/* Anulamos estilo predifinido para enlaces en listas */
+				.expandir ul li a {
+				text-decoration:none;
+				}
+				/* Estilo de cada imagen en situación inicial y transición suave */
+				.expandir ul li a img {
+				width:32px; /* Ancho inicial imagénes. 50% real */
+				height:32px; /* Alto inicial imagénes. 50% real */
+				border:none;
+				-webkit-transition: all .3s ease-in;
+				-moz-transition: all .3s ease-in;
+				-o-transition: all .3s ease-in;
+				-ms-transition: all .3s ease-in;
+				transition: all .3s ease-in;
+				}
+				/* El texto que acompaña a las imágenes no se ve inicialmente */
+				.expandir ul li a span {
+				display:none;
+				}
+				/* Mostramos el texto al hacer hover */
+				.expandir ul li:hover a span {
+				display:block;
+				font-size:14px;
+				text-align:center;
+				color:#000;
+				}
+				/* Agrandamos la imagen al hacer hover */
+				.expandir ul li:hover a img {
+				width:64px;
+				height:64px;
+				-webkit-transition: all .3s ease-in-out;
+				-moz-transition: all .3s ease-in-out;
+				-o-transition: all .3s ease-in-out;
+				-ms-transition: all .3s ease-in-out;
+				transition: all .3s ease-in-out;
+				}
+			
+			.circular-square {
+				border-radius: 50%;
+			}	
+			
+			/* Content Boxes*/
+			.content-box-blue,
+			.content-box-gray,
+			.content-box-green,
+			.content-box-purple,
+			.content-box-red,
+			.content-box-yellow,
+			.content-light-blue {
+			margin: 0 0 25px;
+			overflow: hidden;
+			padding: 20px;
+			}
+
+			.content-box-blue {
+			background-color: #d8ecf7;
+			border: 1px solid #afcde3;
+			}
+
+			.content-box-gray {
+			background-color: #e2e2e2;
+			border: 1px solid #bdbdbd;
+			}
+
+			.content-box-green {
+			background-color: #d9edc2;
+			border: 1px solid #b2ce96;
+			}
+
+			.content-box-purple {
+			background-color: #e2e2f9;
+			border: 1px solid #bebde9;
+			}
+
+			.content-box-red {
+			background-color: #f9dbdb;
+			border: 1px solid #e9b3b3;
+			}
+
+			.content-box-yellow {
+			background-color: #fef5c4;
+			border: 1px solid #fadf98;
+			}
+
+			.content-light-blue {
+			background-color: #B2FBFC;
+			border: 1px solid #92DCFE;
+			}
+		</style>
+	</head>
+	
+	<body  background="imagenes/fondo.jpeg" height= "200" width="200">
+		<p>
+		<br><br><br>
+			<center><img src="imagenes/titulo.png"/></center>
+		</p>
+		
+		<CENTER><div id="header">
+		
+				<br>
+				<br>
+				<ul class="nav">
+					<li><a href=""> INICIO </a></li>
+					
+					<li><a href=""> SOBRE NOSOTROS </a>
+						<ul>
+							<li><a href=""> Nuestro público </a></li>
+							<li><a href=""> Sobre el Autismo</a></li>
+							<li><a href=""> Datos curiosos </a></li>
+							<li><a href=""> Nutrición </a></li>
+						</ul>
+					</li>
+					
+					<li><a href=""> JUEGOS </a>
+						<ul>
+							<li><a href=""> Intrucciones </a></li>
+							<li><a href=""> Juegos </a>
+								<ul>
+									<li><a href=""> Basado en movimiento </a></li>
+									<li><a href=""> Neuro FeedBack</a></li>
+									<li><a href=""> Sensoriales </a></li>
+									<li><a href=""> Lingüistica</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li><a href=""> ESTADISTICAS </a></li>
+					<li><a href=""> PERFIL</a></li>
+				</u>
+		</div>
+		</CENTER>
+		<br>
+		<br>
+		<br>
+		<center><img class="circular-square" src="imagenes/curioso.png"  /></center>
+		
+		<br>
+		<div class="content-box-blue"><center>
+			<P ALING="CENTER"><H1>10 DATOS CURIOSOS DE LOS NIÑOS AUTISTAS.</H1>
+			</center>
+		</div>
+		<br>
+		<DIV ALIGN="center">
+		
+		<h1 style="text-aling:center"> ¿Sabías que los niños con autismo suelen tener la cabeza más grande que el resto, 
+		así como una mayor capacidad para captar información? Muchas personas no conocen estos datos, 
+		de hecho, si no tienes experiencia con niños que sufren autismo, es probable que no sepas mucho 
+		sobre este trastorno.
+		</h1>
+		
+		
+		</DIV>
+		<br>
+		<div class="content-box-blue"><center>
+			<P ALING="CENTER"><H1>1. Tienen una mayor capacidad de procesamiento cognitivo</H1>
+			</center>
+		</div>
+		
+		<div class="contenedor" >
+			
+			<p ALIGN="justify"><center><FONT SIZE="5">Un estudio publicado en la Journal of Abnormal Psychology desveló que los niños 
+			con autismo tienen una mayor capacidad para captar y procesar información ‘especial’. De hecho,
+			si alguna vez te has fijado, sabrás que estos pequeños suelen ser observadores excelentes y a 
+			menudo captan detalles que el resto de las personas pasa por alto. Por eso, suelen ser muy buenos 
+			en áreas como las matemáticas, la tecnología y las artes visuales.</FONT></center></p>
+				
+				
+		</div>
+		<br>
+		<div class="content-box-blue"><center>
+			<P ALING="CENTER"><H1>2. No les interesa la opinión que los demás tengan sobre ellos</H1>
+			</center>
+		</div>
+		<div class="contenedor" >
+			
+			<p ALIGN="justify"><center><FONT SIZE="5">Una investigación realizada en el Instituto Tecnológico de California encontró un detalle interesante sobre los niños que padecen autismo: no suelen prestarle atención a lo que los demás piensan sobre ellos. Para arribar a estos resultados los investigadores compararon el comportamiento de personas con y sin autismo al hacer una donación en dos contextos diferentes: estando solos y siendo observados por alguien. Los resultados mostraron que quienes no tenían autismo donaron más dinero en presencia de otra persona ya que les importaba causar una buena impresión, mientras que quienes padecían este trastorno donaron la misma cifra en ambas condiciones.</FONT></center></p>
+				
+				
+		</div>
+		<br>
+		
+		<br>
+		<div class="content-box-blue"><center>
+			<P ALING="CENTER"><H1>3. Les desagradan algunas texturas</H1>
+			</center>
+		</div>
+		<div class="contenedor" >
+			
+			<p ALIGN="justify"><center><FONT SIZE="5">La mayoría de los niños con autismo suelen ser hipersensibles a algunas texturas, sobre todo cuando se trata de la comida. Ello explica por qué son tan especiales a la hora de comer algunos alimentos e incluso pueden negarse a tocarlos. También hay quienes manifiestan esa hipersensibilidad en otros ámbitos y se resisten a llevar determinadas prendas porque le resultan desagradables al tacto o evitan interactuar con algunos objetos porque no les gusta su textura.</FONT></center></p>
+				
+				
+		</div>
+		<br>
+		<center><img class="circular-square" src="imagenes/curioso1.png"  /></center>
+		<br>
+		<div class="content-box-blue"><center>
+			<P ALING="CENTER"><H1>4. Su rostro los distingue</H1>
+			</center>
+		</div>
+		<div class="contenedor" >
+			
+			<p ALIGN="justify"><center><FONT SIZE="5">A pesar de que el autismo es un trastorno neurológico, también tiene un componente genético, que es el responsable de que la mayoría de estos niños compartan determinados rasgos comunes, sobre todo en el rostro. Los pequeños con este trastorno se identifican rápidamente porque suelen tener los ojos y la boca anchos, la nariz y las mejillas pequeñas y la zona alta de la cara más grande de lo habitual, aunque no todos desarrollan estas características.</FONT></center></p>
+				
+				
+		</div>
+		<br>
+		<div class="content-box-blue"><center>
+			<P ALING="CENTER"><H1>5. Es un trastorno que comparten muchos genios</H1>
+			</center>
+		</div>
+		
+		<div class="contenedor" >
+			
+			<p ALIGN="justify"><center><FONT SIZE="5">Según expertos del Trinity Collage de Dublín, grandes genios de la historia como Isaac Newton, Mozart, Immanuel Kant y Albert Einstein tenían rasgos que hacen sospechar la presencia de un trastorno del espectro autista. Otras personalidades actuales que también tienen estos rasgos son: Woody Allen, Michael Jackson, Bill Gates y Stanley Kubrick.</FONT></center></p>
+				
+				
+		</div>
+		<br>
+		<div class="content-box-blue"><center>
+			<P ALING="CENTER"><H1>6. La mayoría de los niños con autismo fueron prematuros</H1>
+			</center>
+		</div>
+		
+		<div class="contenedor" >
+			
+			<p ALIGN="justify"><center><FONT SIZE="5">Una investigación publicada en la revista Pediatrics recopiló durante 21 años datos de recién nacidos y encontró que los bebés prematuros y los que nacen con bajo peso tienen cinco veces más probabilidades de desarrollar autismo en comparación con los bebés que tienen un peso normal al nacer. Esto explica por qué muchos de los niños con autismo nacieron de forma prematura.</FONT></center></p>
+				
+				
+		</div>
+		<br>
+		
+		<div class="content-box-blue"><center>
+			<P ALING="CENTER"><H1>7. Los niños con autismo no son todos iguales</H1>
+			</center>
+		</div>
+		
+		<div class="contenedor" >
+			
+			<p ALIGN="justify"><center><FONT SIZE="5">Aunque el autismo es un trastorno que tiene características muy bien definidas, no siempre se expresa de la misma forma. Ello explica por qué cada niño es único y tiene peculiaridades que lo distinguen del resto. Por una parte, esto se debe a que existen tres grados distintos de autismo: leve, moderado y severo, lo cual determina el nivel de intensidad de los síntomas. No obstante, el hecho de que cada pequeño sea diferente también depende de las áreas más afectadas por el trastorno, algunos suelen presentar mayores problemas en las relaciones interpersonales, otros en la comunicación y otros en su desarrollo motor.</FONT></center></p>
+				
+				
+		</div>
+		<br>
+		<div class="content-box-blue"><center>
+			<P ALING="CENTER"><H1>8. Los niños con autismo tienen la cabeza más grande que el resto</H1>
+			</center>
+		</div>
+		
+		<div class="contenedor" >
+			
+			<p ALIGN="justify"><center><FONT SIZE="5">Un estudio realizado en la Universidad de Cincinnati, en Estados Unidos, encontró la causa de por qué los niños con autismo tienen la circunferencia de la cabeza más grande que sus coetáneos. Los investigadores consideran que se debe a que estos pequeños tienen mayores niveles de la hormona del crecimiento, específicamente del factor de crecimiento insulínico tipo 1 y 2, lo cual estimula un mayor desarrollo de la cabeza.</FONT></center></p>
+				
+				
+		</div>
+		<br>
+		<div class="content-box-blue"><center>
+			<P ALING="CENTER"><H1>9. Son hipersensibles a los sonidos</H1>
+			</center>
+		</div>
+		
+		<div class="contenedor" >
+			
+			<p ALIGN="justify"><center><FONT SIZE="5">Los niños con autismo tienen muy baja tolerancia a los sonidos muy intensos, algunos incluso no pueden soportar ruidos que para el resto de las personas son normales. El simple hecho de teclear en el ordenador o poner música puedes generarles una gran molestia, sobre todo cuando se trata de ruidos persistentes. Lo que sucede es que tienen una mayor sensibilidad auditiva, lo que hace que perciban los sonidos con mayor intensidad que el resto de las personas.</FONT></center></p>
+				
+				
+		</div>
+		<br>
+		
+		<center><img class="circular-square" src="imagenes/curioso2.jpg"  /></center>
+		<br>
+		
+		
+		<div class="content-box-blue"><center>
+			<P ALING="CENTER"><H1>10. Tienen alterado el desarrollo de sus neuronas espejo</H1>
+			</center>
+		</div>
+		
+		<div class="contenedor" >
+			
+			<p ALIGN="justify"><center><FONT SIZE="5">Las neuronas espejo son las células cerebrales de la empatía, las cuales permiten que los niños sean capaces de ponerse en el lugar de los demás, comprender a quienes les rodean y anticiparse a sus deseos y acciones. Sin embargo, un estudio publicado en la revista Biological Psychiatry ha desvelado que los niños con autismo tienen alterado el sistema de las neuronas espejo, lo que explicaría por qué tienen tan poco desarrolladas sus habilidades sociales y les resulta tan difícil mostrarse empáticos con los demás.</FONT></center></p>
+				
+				
+		</div>
+		<br>
+		
+				
+				
+				
+				
+				
+				<div class="expandir">
+				<P><B>Siguenos en nuestras redes: </B></p>
+					<ul> 
+						<li><a href="URL_Destino1"><img src="https://3.bp.blogspot.com/-eGu2x_YLqKU/T1kGDFwznoI/AAAAAAAAB_w/NS5i4Hqxap4/s400/nav-facebook.png"/><span>FACEBOOK</span></a></li>
+						<li><a href="URL_Destino2"><img src="https://2.bp.blogspot.com/-w3_KpmEDVzM/T1kGD9inLtI/AAAAAAAACAg/tuPkIH5aZrQ/s400/nav-twitter.png"/><span>TWITTER</span></a></li>
+						<li><a href="URL_Destino3"><img src="https://4.bp.blogspot.com/-AzwYElFbe0k/T1ksg16heiI/AAAAAAAACA4/Ft2bKsyl4oE/s400/nav-google2.png"/><span>GOOGLE PLUS</span></a></li>
+						<li><a href="URL_Destino4"><img src="https://3.bp.blogspot.com/-w_v6EZR3zNc/T1kGDd-S9RI/AAAAAAAAB_4/gI2ANh3lvZ0/s400/nav-linkedin.png"/><span>LINKEDIN</span></a></li>
+						<li><a href="URL_Destino4"><img src="https://4.bp.blogspot.com/-ZsJYr_1jqSc/T1kshWqfRSI/AAAAAAAACBQ/KLB6asXBGrE/s400/nav-youtube.png"/><span>YOUTUBE</span></a></li>
+						<li><a href="URL_Destino4"><img src="https://4.bp.blogspot.com/-w1htIE08Ew4/T1kGDhMCrKI/AAAAAAAACAQ/L2hlwp1qYio/s400/nav-rss.png"/><span>RSS</span></a></li>
+					</ul>
+				</div>
+				
+				
+				
+			
+		
+	</body>
+	
+</html>
