@@ -11,10 +11,12 @@ def ingreso(request):
 		#print("Entre en method")
 		#print(form['username'].value())
 		objeto = get_object_or_404(Usuario, pk=form['username'].value())
-		request.session['username'] = objeto.username
-		#print(request.session['username'])
-		#print(objeto.password)
-		return redirect('/vistas/principal')
+		if form['password'].value() == objeto.password:
+			
+			request.session['username'] = objeto.username
+			#print(request.session['username'])
+			#print(objeto.password)
+			return redirect('/vistas/principal')
 		
 	else:
 		form = LoginUsuarioForm()
@@ -35,7 +37,10 @@ def registro(request):
 	return render(request, 'vistas/registro.html', {'form': form})
 
 def principal(request):
-	return render(request, 'vistas/principal.html', {})
+	usuario = get_object_or_404(Medico, pk=request.session['username'])
+	pacientes = usuario.pacientes.all()
+	args = {'usuario': usuario}
+	return render(request, 'vistas/principal.html', args)
 
 def home(request):
 	return render(request, 'vistas/home.html', {})
