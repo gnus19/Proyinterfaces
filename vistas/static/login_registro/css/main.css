@@ -175,7 +175,8 @@ iframe {
   align-items: center;
   padding: 15px;
   position: relative;
-  background-color: #fff;
+  background: url("../images/puzzle3.jpg");
+  background-size: auto;
 }
 
 .wrap-login100 {
