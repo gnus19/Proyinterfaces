@@ -475,7 +475,7 @@
                                             
                                             {% for alumno in usuario.alumnos.all %}
                                             <tr>
-                                                <td>{{ alumno.nombres }}</td>
+                                                <td><a href="#">{{ alumno.nombres }}</a></td>
                                                 <td>{{ alumno.apellidos }}</td>
                                                 <td>{{ alumno.ci }}</td>
                                                 <td>{{ alumno.nacimiento }}</td>

@@ -475,7 +475,7 @@
                                             
                                             {% for paciente in usuario.pacientes.all %}
                                             <tr>
-                                                <td>{{ paciente.nombres }}</td>
+                                                <td><a href="">{{ paciente.nombres }}</a></td>
                                                 <td>{{ paciente.apellidos }}</td>
                                                 <td>{{ paciente.ci }}</td>
                                                 <td>{{ paciente.nacimiento }}</td>
