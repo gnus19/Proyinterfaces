@@ -37,14 +37,54 @@ class Paciente(models.Model):
 	nacimiento = models.DateField()
 	enfermedad = models.CharField(max_length=80)
 
+class Dieta(models.Model):
+    paciente = models.OneToOneField(Paciente, on_delete=models.PROTECT)
+    hora = models.CharField(max_length=80)
+    porcion = models.CharField(max_length=80)
+    alimento = models.CharField(max_length=80)
+
 class Medico(models.Model):
-	usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE, primary_key=True)
-	especialidad = models.CharField(max_length=80)
+	usuario = models.OneToOneField(Usuario, on_delete=models.PROTECT, primary_key=True)
+	especialidad = models.CharField(max_length=80, blank=True)
 	pacientes = models.ManyToManyField(Paciente, blank=True)
 
+
 class Profesor(models.Model):
-	usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE, primary_key=True)
-	area = models.CharField(max_length=80)
+	usuario = models.OneToOneField(Usuario, on_delete=models.PROTECT, primary_key=True)
+	area = models.CharField(max_length=80, blank=True)
 	alumnos = models.ManyToManyField(Paciente, blank=True)
 
+class Representante(models.Model):
+    usuario = models.OneToOneField(Usuario, on_delete=models.PROTECT, primary_key=True)
+    representa = models.ManyToManyField(Paciente, blank=True)
 
+class Cita(models.Model):
+    medico = models.ForeignKey(Medico, on_delete=models.PROTECT)
+    representante = models.ForeignKey(Representante, on_delete=models.PROTECT)
+    fecha = models.DateField()
+    hora = models.CharField(max_length=6)
+
+'''
+Funciones auxiliares
+'''
+
+def esMedico(usr):
+    try:
+        med = Medico.objects.get(pk=usr)
+        return True
+    except:
+        return False
+
+def esProfesor(usr):
+    try:
+        prof = Profesor.objects.get(pk=usr)
+        return True
+    except:
+        return False
+
+def esRepresentante(usr):
+    try:
+        rep = Representante.objects.get(pk=usr)
+        return True
+    except:
+        return False

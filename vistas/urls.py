@@ -10,5 +10,7 @@ urlpatterns = [
 	url(r'^login/$', views.ingreso, name='ingreso'),
 	url(r'^registro/$', views.registro, name='registro'),
 	url(r'^principal/$', views.principal, name='principal'),
+	url(r'^principalRepresentante/$', views.principalRepresentante, name='principalRepresentante'),
+	url(r'^principalProfesor/$', views.principalProfesor, name='principalProfesor'),
 	url(r'^home/$', views.home, name='home')
 ]

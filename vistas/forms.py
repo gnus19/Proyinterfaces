@@ -4,7 +4,10 @@ from .models import *
 import hashlib, datetime
 import re
 
+CHOICES = [('medico', 'medico'), ('profesor', 'profesor'), ('representante', 'representante')]
+
 class RegistroUsuarioForm(forms.ModelForm):
+	tipo = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect)
 	
 	class Meta:
 		model = Usuario
