@@ -53,17 +53,20 @@ def registro(request):
 
 def principal(request):
 	usuario = get_object_or_404(Medico, pk=request.session['username'])
-	pacientes = usuario.pacientes.all()
-	args = {'usuario': usuario}
+	citas = Cita.objects.filter(medico=usuario)
+	args = {'usuario': usuario, 'citas': citas}
 	return render(request, 'vistas/principal.html', args)
 
 def principalRepresentante(request):
 	usuario = get_object_or_404(Representante, pk = request.session['username'])
-	return render(request, 'vistas/principalRepresentante.html', {'usuario': usuario})
+	citas = Cita.objects.filter(representante=usuario)
+	args = {'usuario': usuario, 'citas': citas}
+	return render(request, 'vistas/principalRepresentante.html', args)
 
 def principalProfesor(request):
 	usuario = get_object_or_404(Profesor, pk=request.session['username'])
-	return render(request, 'vistas/principalProfesor.html', {'usuario': usuario})
+	args = {'usuario': usuario}
+	return render(request, 'vistas/principalProfesor.html', args)
 
 def home(request):
 	return render(request, 'vistas/home.html', {})
