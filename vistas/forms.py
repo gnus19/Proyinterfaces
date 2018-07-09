@@ -66,4 +66,17 @@ class LoginUsuarioForm(forms.Form):
 			'apellidos'
 		]
 		
+class AgregarPacienteForm(forms.ModelForm):
 
+	class Meta:
+		model = Paciente
+
+		exclude = []
+
+		widgets = {
+			'nombres': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombres'}),
+			'apellidos': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Apellidos'}),
+			'ci': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'C.I'}),
+			'nacimiento': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Nacimiento'}),
+			'enfermedad': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enfermedad'}),
+		}

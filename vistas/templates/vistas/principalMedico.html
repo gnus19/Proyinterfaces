@@ -159,6 +159,7 @@
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
+                    <!--<img src="" alt="Sistema" />-->
                     Hola, {{ usuario.usuario.nombres }}
                 </a>
             </div>
@@ -446,7 +447,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
-                                    <h2 class="title-1">Representados</h2>
+                                    <h2 class="title-1">Pacientes</h2>
                                     <!--<button class="au-btn au-btn-icon au-btn--blue">
                                         <i class="zmdi zmdi-plus"></i>add item</button>-->
                                 </div>
@@ -472,13 +473,13 @@
                                             <td class="text-right">1</td>
                                             <td class="text-right">$999.00</td>-->
                                             
-                                            {% for rep in usuario.representa.all %}
+                                            {% for paciente in usuario.pacientes.all %}
                                             <tr>
-                                                <td><a href="#">{{ rep.nombres }}</a></td>
-                                                <td>{{ rep.apellidos }}</td>
-                                                <td>{{ rep.ci }}</td>
-                                                <td>{{ rep.nacimiento }}</td>
-                                                <td>{{ rep.enfermedad }}</td>
+                                                <td><a href="">{{ paciente.nombres }}</a></td>
+                                                <td>{{ paciente.apellidos }}</td>
+                                                <td>{{ paciente.ci }}</td>
+                                                <td>{{ paciente.nacimiento }}</td>
+                                                <td>{{ paciente.enfermedad }}</td>
                                             </tr>
 
                                             {% endfor %}
@@ -627,7 +628,7 @@
                                     <table class="table table-borderless table-striped table-earning">
                                         <thead>
                                             <tr>
-                                                <th>Medico</th>
+                                                <th>Representante</th>
                                                 <th>Fecha</th>
                                                 <th>Hora</th>
                                                 <!--<th class="text-right">price</th>
@@ -639,7 +640,7 @@
 
                                             {% for cita in citas %}
                                             <tr>
-                                                <td>{{ cita.medico.usuario.nombres }}</td>
+                                                <td>{{ cita.representante.usuario.nombres }}</td>
                                                 <td>{{ cita.fecha }}</td>
                                                 <td>{{ cita.hora }}</td>
                                             </tr>
@@ -650,14 +651,14 @@
                                 </div>
                             </div>
                             <div class="col-lg-3">
-                                <h2 class="title-1 m-b-25">Gestionar citas</h2>
+                                <h2 class="title-1 m-b-25">Acciones</h2>
                                 <div class="col-lg-9">
                                     <div class="row m-t-25">
-                                        <a href="#"><button type="button" class="btn btn-primary">Agregar Cita</button></a>
+                                        <a href="{% url 'vistas:agregarPaciente' %}"><button type="button" class="btn btn-primary">Agregar Paciente</button></a>
                                     </div>
 
                                     <div class="row m-t-25">
-                                        <a href="#"><button type="button" class="btn btn-danger">Eliminar Cita</button></a>
+                                        <a href="#"><button type="button" class="btn btn-danger">Eliminar Paciente</button></a>
                                     </div>
                                 </div>
 
@@ -701,6 +702,7 @@
                                                 </tbody>
                                             </table>
                                         </div>
+
                                     </div>
                                 </div>-->
                             </div>

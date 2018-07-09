@@ -16,7 +16,7 @@ def ingreso(request):
 			
 			request.session['username'] = objeto.username
 			if esMedico(objeto):
-				return redirect('/vistas/principal')
+				return redirect('/vistas/principalMedico')
 			elif esProfesor(objeto):
 				return redirect('/vistas/principalProfesor')
 			elif esRepresentante(objeto):
@@ -51,11 +51,17 @@ def registro(request):
 		form = RegistroUsuarioForm()
 	return render(request, 'vistas/registro.html', {'form': form})
 
-def principal(request):
+def principalMedico(request):
 	usuario = get_object_or_404(Medico, pk=request.session['username'])
 	citas = Cita.objects.filter(medico=usuario)
 	args = {'usuario': usuario, 'citas': citas}
-	return render(request, 'vistas/principal.html', args)
+	return render(request, 'vistas/principalMedico.html', args)
+
+def agregarPaciente(request):
+	medico = get_object_or_404(Medico, pk=request.session['username'])
+	form = AgregarPacienteForm()
+	args = {'medico': medico, 'form': form}
+	return render(request, 'vistas/agregarPaciente.html', args)
 
 def principalRepresentante(request):
 	usuario = get_object_or_404(Representante, pk = request.session['username'])
