@@ -12,6 +12,7 @@ urlpatterns = [
 	url(r'^principalMedico/$', views.principalMedico, name='principalMedico'),
 	url(r'^principalMedico/agregarPaciente/$', views.agregarPaciente, name='agregarPaciente'),
 	url(r'^principalRepresentante/$', views.principalRepresentante, name='principalRepresentante'),
+	url(r'^principalRepresentante/agregarCita$', views.agregarCita, name='agregarCita'),
 	url(r'^principalProfesor/$', views.principalProfesor, name='principalProfesor'),
 	url(r'^home/$', views.home, name='home')
 ]

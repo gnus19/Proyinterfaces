@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import logout
 from .forms import *
 from .models import *
 # Create your views here.
@@ -65,7 +66,7 @@ def agregarPaciente(request):
 		if form.is_valid():
 			form.save()
 			#Agregar a maedico#
-			usuario = get_object_or_404(Medico, pk=request.session['username'])
+			#usuario = get_object_or_404(Medico, pk=request.session['username'])
 			pacienteNuevo = Paciente.objects.get(pk=form['ci'].value())
 			usuario.pacientes.add(pacienteNuevo)
 			return redirect('/vistas/principalMedico')
@@ -74,11 +75,30 @@ def agregarPaciente(request):
 	args = {'usuario': usuario, 'form': form}
 	return render(request, 'vistas/agregarPaciente.html', args)
 
+def eliminarPaciente(request):
+	pass
+
 def principalRepresentante(request):
 	usuario = get_object_or_404(Representante, pk = request.session['username'])
 	citas = Cita.objects.filter(representante=usuario)
 	args = {'usuario': usuario, 'citas': citas}
 	return render(request, 'vistas/principalRepresentante.html', args)
+
+def agregarCita(request):
+	usuario = get_object_or_404(Representante, pk=request.session['username'])
+
+	if request.method == 'POST':
+		form = AgregarCitaForm(request.POST)
+		if form.is_valid():
+			nuevaCita = form.save(commit=False)
+			nuevaCita.representante = usuario
+			nuevaCita.save()
+			return redirect('/vistas/principalRepresentante')
+		
+	else:
+		form = AgregarCitaForm()
+	args = {'usuario': usuario, 'form': form}
+	return render(request, 'vistas/agregarCita.html', args)
 
 def principalProfesor(request):
 	usuario = get_object_or_404(Profesor, pk=request.session['username'])

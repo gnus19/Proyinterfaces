@@ -77,6 +77,19 @@ class AgregarPacienteForm(forms.ModelForm):
 			'nombres': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombres'}),
 			'apellidos': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Apellidos'}),
 			'ci': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'C.I'}),
-			'nacimiento': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Nacimiento'}),
+			'nacimiento': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'aaaa-mm-dd'}),
 			'enfermedad': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enfermedad'}),
+		}
+
+class AgregarCitaForm(forms.ModelForm):
+
+	class Meta:
+		model = Cita
+
+		exclude = ['representante']
+
+		widgets = {
+			'medico': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Medicos'}),
+			'fecha': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'aaaa-mm-dd'}),
+			'hora': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Hora'}),
 		}
