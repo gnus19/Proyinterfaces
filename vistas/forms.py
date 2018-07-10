@@ -4,7 +4,7 @@ from .models import *
 import hashlib, datetime
 import re
 
-CHOICES = [('medico', 'medico'), ('profesor', 'profesor'), ('representante', 'representante')]
+CHOICES = [('Medico', 'Medico'), ('Profesor', 'Profesor'), ('Representante', 'Representante')]
 
 class RegistroUsuarioForm(forms.ModelForm):
 	tipo = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect)
@@ -65,6 +65,23 @@ class LoginUsuarioForm(forms.Form):
 			'nombres',
 			'apellidos'
 		]
+
+class AgregarAlumnoForm(forms.ModelForm):
+
+	class Meta:
+		model = Paciente
+
+		exclude = []
+
+		widgets = {
+			'nombres': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombres'}),
+			'apellidos': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Apellidos'}),
+			'ci': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'C.I'}),
+			'nacimiento': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Nacimiento'}),
+			'enfermedad': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enfermedad'}),
+		}
+
+
 		
 class AgregarPacienteForm(forms.ModelForm):
 

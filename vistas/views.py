@@ -74,6 +74,23 @@ def agregarPaciente(request):
 	args = {'usuario': usuario, 'form': form}
 	return render(request, 'vistas/agregarPaciente.html', args)
 
+def agregarAlumno(request):
+	usuario = get_object_or_404(Profesor, pk=request.session['username'])
+
+	if request.method == 'POST':
+		form = AgregarPacienteForm(request.POST)
+		if form.is_valid():
+			form.save()
+			#Agregar a maedico#
+			usuario = get_object_or_404(Profesor, pk=request.session['username'])
+			pacienteNuevo = Paciente.objects.get(pk=form['ci'].value())
+			usuario.pacientes.add(pacienteNuevo)
+			return redirect('/vistas/principalProfesor')
+	else:
+		form = AgregarPacienteForm()
+	args = {'usuario': usuario, 'form': form}
+	return render(request, 'vistas/agregarPaciente.html', args)
+
 def principalRepresentante(request):
 	usuario = get_object_or_404(Representante, pk = request.session['username'])
 	citas = Cita.objects.filter(representante=usuario)
@@ -87,3 +104,7 @@ def principalProfesor(request):
 
 def home(request):
 	return render(request, 'vistas/home.html', {})
+
+def perfil(request):
+	
+	return render(request, 'vistas/perfil.html', {})

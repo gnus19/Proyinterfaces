@@ -71,7 +71,7 @@
                         <div id="main-nav" class="stellarnav">
                             <div class="search-and-signup-button white pull-right hidden-md hidden-sm hidden-xs">
                                 <button data-toggle="collapse" data-target="#search-form-switcher"><i class="fa fa-search"></i></button>
-                                <a href="#" class="sign-up">SignUp</a>
+                                <a href="{% url 'vistas:ingreso' %}" class="sign-up">Iniciar Sesión</a>
                             </div>
                             <ul id="nav" class="nav">
                                 <li class="active"><a href="#home">home</a></li>
@@ -439,16 +439,15 @@
             <div class="row">
                 <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                     <div class="download-content sm-center xs-center xs-mb50 xs-font wow fadeIn">
-                        <h2>Registrate a nuestro sistema !</h2>
-                        <p>Registrate a nuestro sistema para disfrutar de nuestros beneficios</p>
-                        <a href="#" class="download-button"><i class="address-book"></i> <span>Resgistrate</span></a>
+                        <h2>¡Registrate en nuestro sistema!</h2>
+                        <p>Registrate en nuestro sistema para disfrutar de nuestros beneficios</p>
+                        <a href="{% url 'vistas:registro' %}" class="download-button"><i class="address-book"></i> <span>Resgistrate</span></a>
                     </div>
                 </div>
                 <div class="col-md-4 col-lg-4 col-md-offset-4 col-lg-offset-4 col-sm-6 col-xs-12">
                     <div class="download-content sm-center xs-center wow fadeIn">
-                        <h2>Ya estas registrado ?</h2>
-                        <p>Inicia sesion</p>
-                        <a href="#" class="download-button"><i class=""></i> <span>Inicia Sesion</span></a>
+                        <h2>¿Ya estas registrado ?</h2>
+                        <a href="{% url 'vistas:ingreso' %}" class="download-button"><i class=""></i> <span>Inicia Sesion</span></a>
                     </div>
                 </div>
             </div>
