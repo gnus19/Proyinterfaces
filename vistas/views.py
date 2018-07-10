@@ -58,9 +58,20 @@ def principalMedico(request):
 	return render(request, 'vistas/principalMedico.html', args)
 
 def agregarPaciente(request):
-	medico = get_object_or_404(Medico, pk=request.session['username'])
-	form = AgregarPacienteForm()
-	args = {'medico': medico, 'form': form}
+	usuario = get_object_or_404(Medico, pk=request.session['username'])
+
+	if request.method == 'POST':
+		form = AgregarPacienteForm(request.POST)
+		if form.is_valid():
+			form.save()
+			#Agregar a maedico#
+			usuario = get_object_or_404(Medico, pk=request.session['username'])
+			pacienteNuevo = Paciente.objects.get(pk=form['ci'].value())
+			usuario.pacientes.add(pacienteNuevo)
+			return redirect('/vistas/principalMedico')
+	else:
+		form = AgregarPacienteForm()
+	args = {'usuario': usuario, 'form': form}
 	return render(request, 'vistas/agregarPaciente.html', args)
 
 def principalRepresentante(request):
