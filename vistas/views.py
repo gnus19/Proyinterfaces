@@ -36,13 +36,13 @@ def registro(request):
 			#print(form['tipo'].value())
 			form.save()
 			usr = Usuario.objects.get(pk=form['username'].value())
-			if form['tipo'].value() == 'medico':
+			if form['tipo'].value() == 'Medico':
 				med = Medico(usuario=usr)
 				med.save()
-			elif form['tipo'].value() == 'profesor':
+			elif form['tipo'].value() == 'Profesor':
 				prof = Profesor(usuario=usr)
 				prof.save()
-			elif form['tipo'].value() == 'representante':
+			elif form['tipo'].value() == 'Representante':
 				rep = Representante(usuario=usr)
 				rep.save()
 			
@@ -51,6 +51,10 @@ def registro(request):
 		form = RegistroUsuarioForm()
 	return render(request, 'vistas/registro.html', {'form': form})
 
+
+'''
+Vistas del medico
+'''
 def principalMedico(request):
 	usuario = get_object_or_404(Medico, pk=request.session['username'])
 	citas = Cita.objects.filter(medico=usuario)
@@ -74,6 +78,56 @@ def agregarPaciente(request):
 	args = {'usuario': usuario, 'form': form}
 	return render(request, 'vistas/agregarPaciente.html', args)
 
+
+'''
+Vistas del representante
+'''
+def principalRepresentante(request):
+	usuario = get_object_or_404(Representante, pk = request.session['username'])
+	citas = Cita.objects.filter(representante=usuario)
+	args = {'usuario': usuario, 'citas': citas}
+	return render(request, 'vistas/principalRepresentante.html', args)
+
+def agregarCita(request):
+	usuario = get_object_or_404(Representante, pk=request.session['username'])
+
+	if request.method == 'POST':
+		form = AgregarCitaForm(request.POST)
+		if form.is_valid():
+			nuevaCita = form.save(commit=False)
+			nuevaCita.representante = usuario
+			nuevaCita.save()
+			return redirect('/vistas/principalRepresentante')
+		
+	else:
+		form = AgregarCitaForm()
+	args = {'usuario': usuario, 'form': form}
+	return render(request, 'vistas/agregarCita.html', args)
+
+def agregarRepresentado(request):
+	usuario = get_object_or_404(Representante, pk=request.session['username'])
+	pacientes = Paciente.objects.all()
+
+	args = {'usuario': usuario, 'pacientes': pacientes}
+	return render(request, 'vistas/agregarRepresentado.html', args)
+
+def agregarARepresentante(request, ciPaciente):
+	usuario = get_object_or_404(Representante, pk=request.session['username'])
+
+	nuevopaciente = Paciente.objects.get(pk=ciPaciente)
+	usuario.representa.add(nuevopaciente)
+	
+	args = {'usuario': usuario}
+	return redirect('/vistas/principalRepresentante')
+
+'''
+Vistas del profesor
+'''
+def principalProfesor(request):
+	usuario = get_object_or_404(Profesor, pk=request.session['username'])
+	args = {'usuario': usuario}
+	return render(request, 'vistas/principalProfesor.html', args)
+
 def agregarAlumno(request):
 	usuario = get_object_or_404(Profesor, pk=request.session['username'])
 
@@ -90,17 +144,6 @@ def agregarAlumno(request):
 		form = AgregarPacienteForm()
 	args = {'usuario': usuario, 'form': form}
 	return render(request, 'vistas/agregarPaciente.html', args)
-
-def principalRepresentante(request):
-	usuario = get_object_or_404(Representante, pk = request.session['username'])
-	citas = Cita.objects.filter(representante=usuario)
-	args = {'usuario': usuario, 'citas': citas}
-	return render(request, 'vistas/principalRepresentante.html', args)
-
-def principalProfesor(request):
-	usuario = get_object_or_404(Profesor, pk=request.session['username'])
-	args = {'usuario': usuario}
-	return render(request, 'vistas/principalProfesor.html', args)
 
 def home(request):
 	return render(request, 'vistas/home.html', {})

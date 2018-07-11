@@ -12,9 +12,12 @@ urlpatterns = [
 	url(r'^registro/$', views.registro, name='registro'),
 	url(r'^principalMedico/$', views.principalMedico, name='principalMedico'),
 	url(r'^principalMedico/agregarPaciente/$', views.agregarPaciente, name='agregarPaciente'),
-	url(r'^principalProfesor/agregarAlumno/$', views.agregarAlumno, name='agregarAlumno'),
 	url(r'^principalRepresentante/$', views.principalRepresentante, name='principalRepresentante'),
+	url(r'^principalRepresentante/agregarCita$', views.agregarCita, name='agregarCita'),
+	url(r'^principalRepresentante/agregarRepresentado/$', views.agregarRepresentado, name='agregarRepresentado'),
+	url(r'^principalRepresentante/agregarRepresentado/(?P<ciPaciente>.+)/$', views.agregarARepresentante, name='agregarARepresentante'),
 	url(r'^principalProfesor/$', views.principalProfesor, name='principalProfesor'),
+	url(r'^principalProfesor/agregarAlumno/$', views.agregarAlumno, name='agregarAlumno'),
 	url(r'^home/$', views.home, name='home'),
 	url(r'^perfil/$', views.perfil, name = 'perfil')
 ]
