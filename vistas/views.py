@@ -63,7 +63,7 @@ Juegos
 def juegos(request):
 	usuario = get_object_or_404(Usuario, pk=request.session['username'])
 
-	
+
 	args = {'usuario': usuario}
 	return render(request, 'vistas/juegos.html', args)
 
@@ -160,9 +160,14 @@ def agregarAlumno(request):
 	args = {'usuario': usuario, 'form': form}
 	return render(request, 'vistas/agregarPaciente.html', args)
 
+'''
+Pagina inicial
+'''
 def home(request):
 	return render(request, 'vistas/home.html', {})
 
 def perfil(request):
-	
-	return render(request, 'vistas/perfil.html', {})
+	usuario = get_object_or_404(Usuario, pk=request.session['username'])
+	form = RegistroUsuarioForm(instance=usuario)
+	args = {'form': form, 'usuario': usuario}
+	return render(request, 'vistas/perfil.html', args)
