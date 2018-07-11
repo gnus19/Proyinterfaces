@@ -16,5 +16,7 @@ urlpatterns = [
 	url(r'^principalRepresentante/$', views.principalRepresentante, name='principalRepresentante'),
 	url(r'^principalProfesor/$', views.principalProfesor, name='principalProfesor'),
 	url(r'^home/$', views.home, name='home'),
-	url(r'^perfil/$', views.perfil, name = 'perfil')
+	url(r'^perfilProfesor/$', views.perfilProfesor, name = 'perfilProfesor'),
+	url(r'^perfilMedico/$', views.perfilMedico, name = 'perfilMedico'),
+	url(r'^perfilRepresentante/$', views.perfilRepresentante, name = 'perfilRepresentante')
 ]

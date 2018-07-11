@@ -105,6 +105,17 @@ def principalProfesor(request):
 def home(request):
 	return render(request, 'vistas/home.html', {})
 
-def perfil(request):
-	
-	return render(request, 'vistas/perfil.html', {})
+def perfilProfesor(request):
+	usuario = get_object_or_404(Profesor, pk=request.session['username'])
+	args = {'usuario': usuario}
+	return render(request, 'vistas/perfilProfesor.html', args)
+
+def perfilMedico(request):
+	usuario = get_object_or_404(Medico, pk=request.session['username'])
+	args = {'usuario': usuario}
+	return render(request, 'vistas/perfilMedico.html', args)
+
+def perfilRepresentante(request):
+	usuario = get_object_or_404(Representante, pk=request.session['username'])
+	args = {'usuario': usuario}
+	return render(request, 'vistas/perfilRepresentante.html', args)
