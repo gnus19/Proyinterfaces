@@ -33,6 +33,32 @@ class RegistroUsuarioForm(forms.ModelForm):
 
 		}
 
+class ModificarUsuarioForm(forms.ModelForm):
+	
+	class Meta:
+		model = Usuario
+		fields = [
+			'username',
+			'nombres',
+			'apellidos',
+			'password',
+			
+		]
+		labels = {
+			'username': 'Correo electronico',
+			'nombres': 'Nombres',
+			'apellidos': 'Apellidos',
+			'password': 'Contrasena',
+			
+		}
+		widgets = {
+			'username': forms.EmailInput(attrs={'class':'form-control', 'placeholder': 'Correo electronico'}),
+			'nombres': forms.TextInput(attrs={'class':'form-control', 'placeholder': 'Nombres'}),
+			'apellidos': forms.TextInput(attrs={'class':'form-control', 'placeholder': 'Apellidos'}),
+			'password': forms.PasswordInput(attrs={'class':'form-control', 'placeholder': 'Password', 'type': 'password'}),
+
+		}
+
 
 class LoginUsuarioForm(forms.Form):
 
@@ -77,7 +103,7 @@ class AgregarAlumnoForm(forms.ModelForm):
 			'nombres': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombres'}),
 			'apellidos': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Apellidos'}),
 			'ci': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'C.I'}),
-			'nacimiento': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Nacimiento'}),
+			'nacimiento': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'aaaa-mm-dd'}),
 			'enfermedad': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enfermedad'}),
 		}
 
@@ -109,4 +135,6 @@ class AgregarCitaForm(forms.ModelForm):
 			'medico': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Medicos'}),
 			'fecha': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'aaaa-mm-dd'}),
 			'hora': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Hora'}),
+
 		}
+

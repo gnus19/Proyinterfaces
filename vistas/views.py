@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import logout
 from .forms import *
 from .models import *
 # Create your views here.
@@ -84,7 +85,7 @@ def agregarPaciente(request):
 		if form.is_valid():
 			form.save()
 			#Agregar a maedico#
-			usuario = get_object_or_404(Medico, pk=request.session['username'])
+			#usuario = get_object_or_404(Medico, pk=request.session['username'])
 			pacienteNuevo = Paciente.objects.get(pk=form['ci'].value())
 			usuario.pacientes.add(pacienteNuevo)
 			return redirect('/vistas/principalMedico')
@@ -93,10 +94,10 @@ def agregarPaciente(request):
 	args = {'usuario': usuario, 'form': form}
 	return render(request, 'vistas/agregarPaciente.html', args)
 
-
 '''
 Vistas del representante
 '''
+
 def principalRepresentante(request):
 	usuario = get_object_or_404(Representante, pk = request.session['username'])
 	citas = Cita.objects.filter(representante=usuario)
@@ -119,6 +120,7 @@ def agregarCita(request):
 	args = {'usuario': usuario, 'form': form}
 	return render(request, 'vistas/agregarCita.html', args)
 
+
 def agregarRepresentado(request):
 	usuario = get_object_or_404(Representante, pk=request.session['username'])
 	pacientes = Paciente.objects.all()
@@ -138,6 +140,7 @@ def agregarARepresentante(request, ciPaciente):
 '''
 Vistas del profesor
 '''
+
 def principalProfesor(request):
 	usuario = get_object_or_404(Profesor, pk=request.session['username'])
 	args = {'usuario': usuario}
@@ -168,6 +171,43 @@ def home(request):
 
 def perfil(request):
 	usuario = get_object_or_404(Usuario, pk=request.session['username'])
-	form = RegistroUsuarioForm(instance=usuario)
+	
+	form = ModificarUsuarioForm(request.POST, instance=usuario)
+	if form.is_valid():
+		nuevoUsuario = form.save(commit=False)
+		request.session['username'] = form['username'].value()
+		nuevoUsuario.save()
+		if esRepresentante(form['username'].value()):
+			return redirect('/vistas/principalRepresentante/')
+		elif esProfesor(form['username'].value()):
+			return redirect('/vistas/principalProfesor/')
+		elif esMedico(form['username'].value()):
+			return redirect('/vistas/principalMedico/')
+		else:
+			return redirect('/vistas/login/')
+	else:
+		form = ModificarUsuarioForm(instance=usuario)
 	args = {'form': form, 'usuario': usuario}
 	return render(request, 'vistas/perfil.html', args)
+
+def perfilPaciente(request, ciPaciente):
+	usuario = get_object_or_404(Usuario, pk=request.session['username'])
+	paciente = Paciente.objects.get(pk=ciPaciente)
+	form = AgregarPacienteForm(request.POST, instance=paciente)
+	if form.is_valid():
+		nuevoPaciente = form.save(commit=False)
+		#request.session['username'] = form['username'].value()
+		nuevoPaciente.save()
+		if esRepresentante(usuario.username):
+			return redirect('/vistas/principalRepresentante/')
+		elif esProfesor(usuario.username):
+			return redirect('/vistas/principalProfesor/')
+		elif esMedico(usuario.username):
+			return redirect('/vistas/principalMedico/')
+		else:
+			return redirect('/vistas/login/')
+	else:
+		form = AgregarPacienteForm(instance=paciente)
+	args = {'form': form, 'usuario': usuario}
+	return render(request, 'vistas/perfilPaciente.html', args)
+

@@ -52,29 +52,29 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
-                            <a class="js-arrow" href="{% url 'vistas:home' %}">
-                                <i class="fas fa-tachometer-alt"></i>Home</a>
-                        </li>
                         <li>
+                            <a class="js-arrow" href="{% url 'vistas:home' %}">
+                                <i class="fas fa-home"></i>Home</a>
+                        </li>
+                        <li class="active has-sub">
                             <a href="{% url 'vistas:perfil' %}">
-                                <i class="fas fa-chart-bar"></i>Perfil</a>
+                                <i class="fas fa-user"></i>Perfil</a>
                         </li>
                         <li>
                             <a href="{% url 'vistas:infoNutricional' %}">
-                                <i class="fas fa-table"></i>Info. Nutricional</a>
+                                <i class="fab fa-nutritionix"></i>Info. Nutricional</a>
                         </li>
                         <li>
                             <a href="#">
-                                <i class="far fa-check-square"></i>Info. General</a>
+                                <i class="fas fa-info-circle"></i>Info. General</a>
                         </li>
                         <li>
                             <a href="{% url 'vistas:juegos' %}">
-                                <i class="fas fa-calendar-alt"></i>Juegos</a>
+                                <i class="fas fa-gamepad"></i>Juegos</a>
                         </li>
                         <li>
                             <a href="#">
-                                <i class="fas fa-map-marker-alt"></i>Estadisticaas</a>
+                                <i class="fas fa-signal"></i>Estadisticas</a>
                         </li>
                         <li>
                             <a href="{% url 'vistas:salir' %}">
@@ -130,7 +130,7 @@
                                             
                                             {% for rep in usuario.representa.all %}
                                             <tr>
-                                                <td><a href="#">{{ rep.nombres }}</a></td>
+                                                <td><a href="{% url 'vistas:perfilPaciente' ciPaciente=rep.ci %}">{{ rep.nombres }}</a></td>
                                                 <td>{{ rep.apellidos }}</td>
                                                 <td>{{ rep.ci }}</td>
                                                 <td>{{ rep.nacimiento }}</td>
@@ -149,78 +149,9 @@
                                     <a href="#"><button type="button" class="btn btn-danger">Eliminar Representado</button></a>
                                 </div>
                             </div>
-                            <!--<div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c1">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-account-o"></i>
-                                            </div>
-                                            <div class="text">
-                                                <h2>10368</h2>
-                                                <span>members online</span>
-                                            </div>
-                                        </div>
-                                        <div class="overview-chart">
-                                            <canvas id="widgetChart1"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c2">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-shopping-cart"></i>
-                                            </div>
-                                            <div class="text">
-                                                <h2>388,688</h2>
-                                                <span>items solid</span>
-                                            </div>
-                                        </div>
-                                        <div class="overview-chart">
-                                            <canvas id="widgetChart2"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c3">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-calendar-note"></i>
-                                            </div>
-                                            <div class="text">
-                                                <h2>1,086</h2>
-                                                <span>this week</span>
-                                            </div>
-                                        </div>
-                                        <div class="overview-chart">
-                                            <canvas id="widgetChart3"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c4">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-money"></i>
-                                            </div>
-                                            <div class="text">
-                                                <h2>$1,060,386</h2>
-                                                <span>total earnings</span>
-                                            </div>
-                                        </div>
-                                        <div class="overview-chart">
-                                            <canvas id="widgetChart4"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>-->
+                       
+
+                            
                         </div>
                         <div class="row">
                             <!--<div class="col-lg-6">

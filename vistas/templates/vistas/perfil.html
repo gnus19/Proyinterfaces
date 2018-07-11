@@ -46,38 +46,38 @@
             <div class="logo">
                 <a href="{% url 'vistas:principalProfesor' %}">
                     <!--<img src="" alt="Sistema" />-->
-                    Hola, {{ usuario.usuario.nombres }}
+                    Hola, {{ usuario.nombres }}
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
+                        <li>
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Home</a>
+                                <i class="fas fa-home"></i>Home</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 
                             </ul>
                         </li>
-                        <li>
+                        <li class="active has-sub">
                             <a href="#">
-                                <i class="fas fa-chart-bar"></i>Perfil</a>
+                                <i class="fas fa-user"></i>Perfil</a>
                         </li>
                         <li>
-                            <a href="table.html">
-                                <i class="fas fa-table"></i>Info. Nutricional</a>
+                            <a href="{% url 'vistas:infoNutricional' %}">
+                                <i class="fas fa-nutritionix"></i>Info. Nutricional</a>
                         </li>
                         <li>
                             <a href="form.html">
-                                <i class="far fa-check-square"></i>Info. General</a>
+                                <i class="far fa-info-circle"></i>Info. General</a>
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="fas fa-calendar-alt"></i>Juegos</a>
+                            <a href="{% url 'vistas:juegos' %}">
+                                <i class="fas fa-gamepad"></i>Juegos</a>
                         </li>
                         <li>
                             <a href="map.html">
-                                <i class="fas fa-map-marker-alt"></i>Estadisticaas</a>
+                                <i class="fas fa-signal"></i>Estadisticas</a>
                         </li>
                         <li>
                             <a href="{% url 'vistas:salir' %}">
@@ -99,7 +99,102 @@
             <!-- HEADER DESKTOP END-->
 
             <!-- MAIN CONTENT-->
-            
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="overview-wrap">
+                                    
+                                    <!--<button class="au-btn au-btn-icon au-btn--blue">
+                                        <i class="zmdi zmdi-plus"></i>add item</button>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-t-25">
+                    
+
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-9">
+                                <h2 class="title-1 m-b-25">Modificar Usuario</h2>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong>Modificar</strong> Usuario
+                                    </div>
+                                    <div class="card-body card-block">
+                                        <form action="" method="post" class="form-horizontal">
+                                            {% csrf_token %}
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="hf-email" class=" form-control-label">Nombres</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    {{form.nombres}}
+                                                    <span class="help-block">Introduzca nombres</span>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="hf-password" class=" form-control-label">Apellidos</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    {{form.apellidos}}
+                                                    <span class="help-block">Introduzca apellidos</span>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="hf-password" class=" form-control-label">Usuario</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    {{form.username}}
+                                                    <span class="help-block">Introduzca nuevo correo electronico</span>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="hf-password" class=" form-control-label" placeholder="hol" >Password</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    {{form.password}}
+
+                                                    <span class="help-block">Introduzca nuevo passwprd</span>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="card-footer">
+                                                <button type="submit" class="btn btn-primary btn-sm">
+                                                    <i class="fa fa-dot-circle-o"></i> Submit
+                                                </button>
+                                                <button type="reset" class="btn btn-danger btn-sm">
+                                                    <i class="fa fa-ban"></i> Reset
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            
+                        </div>
+                        <div class="row">
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
     </div>
 

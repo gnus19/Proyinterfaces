@@ -21,5 +21,7 @@ urlpatterns = [
 	url(r'^principalProfesor/$', views.principalProfesor, name='principalProfesor'),
 	url(r'^principalProfesor/agregarAlumno/$', views.agregarAlumno, name='agregarAlumno'),
 	url(r'^home/$', views.home, name='home'),
-	url(r'^perfil/$', views.perfil, name = 'perfil')
+	url(r'^perfil/$', views.perfil, name = 'perfil'),
+	url(r'^perfilPaciente/(?P<ciPaciente>.+)/$', views.perfilPaciente, name='perfilPaciente')
+
 ]

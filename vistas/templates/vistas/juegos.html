@@ -53,34 +53,32 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li>
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Home</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="index.html">Home</a>
-                                </li>
-
-                            </ul>
+                            <a class="js-arrow" href="{% url 'vistas:home' %}">
+                                <i class="fas fa-home"></i>Home</a>
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="fas fa-chart-bar"></i>Perfil</a>
+                            <a href="{% url 'vistas:perfilMedico' %}">
+                                <i class="fas fa-user"></i>Perfil</a>
                         </li>
                         <li>
-                            <a href="{% url 'vistas:infoNutricional' %}">
-                                <i class="fas fa-table"></i>Info. Nutricional</a>
+                            <a href="table.html">
+                                <i class="fab fa-nutritionix"></i>Info. Nutricional</a>
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="far fa-check-square"></i>Info. General</a>
+                            <a href="form.html">
+                                <i class="fas fa-info-circle"></i>Info. General</a>
                         </li>
                         <li class="active has-sub">
-                            <a href="{% url 'vistas:juegos' %}">
-                                <i class="fas fa-calendar-alt"></i>Juegos</a>
+                            <a href="#">
+                                <i class="fas fa-gamepad"></i>Juegos</a>
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="fas fa-map-marker-alt"></i>Estadisticaas</a>
+                            <a href="map.html">
+                                <i class="fas fa-signal"></i>Estadisticas</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'vistas:salir' %}">
+                                <i class="fas fa-sign-out-alt"></i>Cerrar Sesión</a>
                         </li>
                         
                     </ul>

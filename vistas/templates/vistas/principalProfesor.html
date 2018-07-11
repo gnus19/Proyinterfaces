@@ -53,29 +53,29 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
-                            <a class="js-arrow" href="{% url 'vistas:home' %}">
-                                <i class="fas fa-tachometer-alt"></i>Home</a>
-                        </li>
                         <li>
+                            <a class="js-arrow" href="{% url 'vistas:home' %}">
+                                <i class="fas fa-home"></i>Home</a>
+                        </li>
+                        <li class="active has-sub">
                             <a href="{% url 'vistas:perfil' %}">
-                                <i class="fas fa-chart-bar"></i>Perfil</a>
+                                <i class="fas fa-user"></i>Perfil</a>
                         </li>
                         <li>
                             <a href="{% url 'vistas:infoNutricional' %}">
-                                <i class="fas fa-table"></i>Info. Nutricional</a>
+                                <i class="fab fa-nutritionix"></i>Info. Nutricional</a>
                         </li>
                         <li>
                             <a href="#">
-                                <i class="far fa-check-square"></i>Info. General</a>
+                                <i class="fas fa-info-circle"></i>Info. General</a>
                         </li>
                         <li>
                             <a href="{% url 'vistas:juegos' %}">
-                                <i class="fas fa-calendar-alt"></i>Juegos</a>
+                                <i class="fas fa-gamepad"></i>Juegos</a>
                         </li>
                         <li>
                             <a href="#">
-                                <i class="fas fa-map-marker-alt"></i>Estadisticaas</a>
+                                <i class="fas fa-signal"></i>Estadisticas</a>
                         </li>
                         <li>
                             <a href="{% url 'vistas:salir' %}">
@@ -134,7 +134,7 @@
                                             
                                             {% for alumno in usuario.alumnos.all %}
                                             <tr>
-                                                <td><a href="#">{{ alumno.nombres }}</a></td>
+                                                <td><a href="{% url 'vistas:perfilPaciente' ciPaciente=alumno.ci %}">{{ alumno.nombres }}</a></td>
                                                 <td>{{ alumno.apellidos }}</td>
                                                 <td>{{ alumno.ci }}</td>
                                                 <td>{{ alumno.nacimiento }}</td>
