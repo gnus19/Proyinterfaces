@@ -87,7 +87,7 @@ def agregarPaciente(request):
 			#Agregar a maedico#
 			#usuario = get_object_or_404(Medico, pk=request.session['username'])
 			pacienteNuevo = Paciente.objects.get(pk=form['ci'].value())
-			usuario.pacientes.add(pacienteNuevo)
+			usuario.paciente.add(pacienteNuevo)
 			return redirect('/vistas/principalMedico')
 	else:
 		form = AgregarPacienteForm()
@@ -176,12 +176,12 @@ def agregarAlumno(request):
 			#Agregar a maedico#
 			usuario = get_object_or_404(Profesor, pk=request.session['username'])
 			pacienteNuevo = Paciente.objects.get(pk=form['ci'].value())
-			usuario.pacientes.add(pacienteNuevo)
+			usuario.alumnos.add(pacienteNuevo)
 			return redirect('/vistas/principalProfesor')
 	else:
 		form = AgregarPacienteForm()
 	args = {'usuario': usuario, 'form': form}
-	return render(request, 'vistas/agregarPaciente.html', args)
+	return render(request, 'vistas/agregarAlumno.html', args)
 
 
 '''
