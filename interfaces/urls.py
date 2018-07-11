@@ -20,5 +20,5 @@ from . import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^vistas/', include('vistas.urls')),
-    url(r'^$', views.login_redirect, name = 'login_redirect')
+    url(r'^$', views.home_redirect, name = 'home_redirect')
 ]

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Dashboard</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="{% static 'principal/css/font-face.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'principal/vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'principal/vendor/font-awesome-5/css/fontawesome-all.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'principal/vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="{% static 'principal/vendor/bootstrap-4.1/bootstrap.min.css' %}" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="{% static 'principal/vendor/animsition/animsition.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'principal/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'principal/vendor/wow/animate.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'principal/vendor/css-hamburgers/hamburgers.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'principal/vendor/slick/slick.css" rel="stylesheet' %}" media="all">
+    <link href="{% static 'principal/vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'principal/vendor/perfect-scrollbar/perfect-scrollbar.css' %}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{% static 'principal/css/theme.css' %}" rel="stylesheet" media="all">
+
+</head>
+
+<style type="text/css">
+  
+  .JZUAbb {
+    position: absolute;
+    display: block;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+img {
+    border: none;
+}
+#imagenfondo {
+    
+    padding: 25px;
+    background: url(http://coding.dp.ua/wp-content/uploads/2013/06/css-background-radial-gradient-19858.png);
+    background-repeat: no-repeat;
+    background-size: 1000px 1000px;
+
+}
+</style>
+
+<body class="animsition">
+    <div class="page-wrapper">
+
+
+
+        <!-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <a href="#">
+                    <!--<img src="" alt="Sistema" />-->
+                    Hola, {{ usuario.usuario.nombres }}
+                </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                        <li class="active has-sub">
+                            <a class="js-arrow" href="{% url 'vistas:home' %}">
+                                <i class="fas fa-home"></i>Home</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'vistas:perfilMedico' %}">
+                                <i class="fas fa-user"></i>Perfil</a>
+                        </li>
+                        <li>
+                            <a href="table.html">
+                                <i class="fab fa-nutritionix"></i>Info. Nutricional</a>
+                        </li>
+                        <li>
+                            <a href="form.html">
+                                <i class="fas fa-info-circle"></i>Info. General</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-gamepad"></i>Juegos</a>
+                        </li>
+                        <li>
+                            <a href="map.html">
+                                <i class="fas fa-signal"></i>Estadisticas</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'vistas:salir' %}">
+                                <i class="fas fa-sign-out-alt"></i>Cerrar Sesión</a>
+                        </li>
+                        
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+
+        <!-- PAGE CONTAINER-->
+  <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <!-- HEADER DESKTOP-->
+            <header class="header-desktop">
+                <!--<div class="section__content section__content--p30">
+                    
+                </div>-->
+            </header>
+            <!-- HEADER DESKTOP END-->
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                    <div id="imagenfondo">
+                        <div class="row">
+                            <div class="col-lg-12"">
+                                <div class="overview-wrap">
+                                    <h2 class="title-1" > {{ usuario.usuario.nombres }} {{ usuario.usuario.apellidos }}</h2>
+
+                                </div>
+                              </div>
+                        </div>
+                        
+                            <div class="col-lg-1">
+                                <h2 class="title-1 m-b-25"></h2>
+                                <div class="col-lg-6">
+                                  <div class="row m-t-25">
+                                        <a href="#"><button type="button" class="btn btn-primary">Cursos y certificados</button></a>
+                                  </div>
+                                  <div class="row m-t-25">
+                                        <a href="#"><button type="button" class="btn btn-primary">Historial Académico</button></a>
+                                  </div>
+
+                                  <div class="row m-t-25">
+                                        <a href="#"><button onclick="myFunction()" type="button" id="change" class="btn btn-primary">Editar Perfil</button></a>
+
+                                    <h2 class="title-1 m-b-25"></h2>
+                                    </div>
+                                    <div id="myDIV"> 
+                                      <form class="login100-form validate-form p-l-55 p-r-55 p-t-178" method="post">
+                                            {% csrf_token %}
+                                            <span class="login100-form-title">
+                                                Modificar Perfil
+                                            </span>
+
+                                            <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter name">
+                                                {{form.nombres}}
+                                                <!--<input class="input100" type="text" name="first_name" placeholder="Nombres">-->
+                                                <!--<label for="form.first_name.id_for_label">Nombre</label>-->
+                                                <span class="focus-input100"></span>                        
+                                            </div>
+
+                                            <div class="wrap-input100 validate-input m-b-16" data-validate = "Please enter last name">
+                                                <!--<input class="input100" type="text" name="last_name" placeholder="Apellidos">-->
+                                                {{form.apellidos}}
+                                                <span class="focus-input100"></span>
+                                            </div>
+
+                                            <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
+                                                <!--<input class="input100" type="text" name="username" placeholder="Usuario">-->
+                                                {{form.username}}
+                                                <span class="focus-input100"></span>
+                                            </div>
+
+                                            <div class="wrap-input100 validate-input m-b-16" data-validate = "Please enter password">
+                                                <!--<input class="input100" type="password" name="password" placeholder="Password">-->
+                                                {{form.password}}
+                                                <span class="focus-input100"></span>
+                                            </div>
+
+                                            <div class="flex-col-c p-t-170 p-b-40">
+                                                <div class="container-login100-form-btn">
+                                                    <button class="login100-form-btn" type="submit">
+                                                        Registrar
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    
+                                    </div>
+                                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+                                    <script>
+                                    function myFunction() {
+                                        var x = document.getElementById("myDIV");
+                                        if (x.style.display === "none") {
+                                            x.style.display = "block";
+                                        } else {
+                                            x.style.display = "none";
+                                        }
+                                    }
+                                    </script>
+
+
+                                    
+
+                                </div>
+                                <!--<h2 class="title-1 m-b-25">Puntuaciones</h2>
+                                </div>-->
+                            </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                            <!--<div class="col-lg-6">
+                        </div>-->
+                        <!-- <div class="row">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <!-- END MAIN CONTENT-->
+            <!-- END PAGE CONTAINER-->
+        </div>
+
+    </div>
+            
+
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="{% static 'principal/vendor/jquery-3.2.1.min.js' %}"></script>
+    <!-- Bootstrap JS-->
+    <script src="{% static 'principal/vendor/bootstrap-4.1/popper.min.js' %}"></script>
+    <script src="{% static 'principal/vendor/bootstrap-4.1/bootstrap.min.js' %}"></script>
+    <!-- Vendor JS       -->
+    <script src="{% static 'principal/vendor/slick/slick.min.js' %}">
+    </script>
+    <script src="{% static 'principal/vendor/wow/wow.min.js' %}"></script>
+    <script src="{% static 'principal/vendor/animsition/animsition.min.js' %}"></script>
+    <script src="{% static 'principal/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js' %}">
+    </script>
+    <script src="{% static 'principal/vendor/counter-up/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'principal/vendor/counter-up/jquery.counterup.min.js' %}">
+    </script>
+    <script src="{% static 'principal/vendor/circle-progress/circle-progress.min.js' %}"></script>
+    <script src="{% static 'principal/vendor/perfect-scrollbar/perfect-scrollbar.js' %}"></script>
+    <script src="{% static 'principal/vendor/chartjs/Chart.bundle.min.js' %}"></script>
+    <script src="{% static 'principal/vendor/select2/select2.min.js' %}">
+    </script>
+
+    <!-- Main JS-->
+    <script src="{% static 'principal/js/main.js' %}"></script>
+
+</body>
+
+</html>
+<!-- end document-->

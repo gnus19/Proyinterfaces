@@ -4,7 +4,7 @@ from .models import *
 import hashlib, datetime
 import re
 
-CHOICES = [('medico', 'medico'), ('profesor', 'profesor'), ('representante', 'representante')]
+CHOICES = [('Medico', 'Medico'), ('Profesor', 'Profesor'), ('Representante', 'Representante')]
 
 class RegistroUsuarioForm(forms.ModelForm):
 	tipo = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect)
@@ -30,6 +30,32 @@ class RegistroUsuarioForm(forms.ModelForm):
 			'nombres': forms.TextInput(attrs={'class':'input100', 'placeholder': 'Nombres'}),
 			'apellidos': forms.TextInput(attrs={'class':'input100', 'placeholder': 'Apellidos'}),
 			'password': forms.PasswordInput(attrs={'class':'input100', 'placeholder': 'Password', 'type': 'password'}),
+
+		}
+
+class ModificarUsuarioForm(forms.ModelForm):
+	
+	class Meta:
+		model = Usuario
+		fields = [
+			'username',
+			'nombres',
+			'apellidos',
+			'password',
+			
+		]
+		labels = {
+			'username': 'Correo electronico',
+			'nombres': 'Nombres',
+			'apellidos': 'Apellidos',
+			'password': 'Contrasena',
+			
+		}
+		widgets = {
+			'username': forms.EmailInput(attrs={'class':'form-control', 'placeholder': 'Correo electronico'}),
+			'nombres': forms.TextInput(attrs={'class':'form-control', 'placeholder': 'Nombres'}),
+			'apellidos': forms.TextInput(attrs={'class':'form-control', 'placeholder': 'Apellidos'}),
+			'password': forms.PasswordInput(attrs={'class':'form-control', 'placeholder': 'Password', 'type': 'password'}),
 
 		}
 
@@ -65,6 +91,23 @@ class LoginUsuarioForm(forms.Form):
 			'nombres',
 			'apellidos'
 		]
+
+class AgregarAlumnoForm(forms.ModelForm):
+
+	class Meta:
+		model = Paciente
+
+		exclude = []
+
+		widgets = {
+			'nombres': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombres'}),
+			'apellidos': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Apellidos'}),
+			'ci': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'C.I'}),
+			'nacimiento': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'aaaa-mm-dd'}),
+			'enfermedad': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enfermedad'}),
+		}
+
+
 		
 class AgregarPacienteForm(forms.ModelForm):
 
@@ -92,4 +135,6 @@ class AgregarCitaForm(forms.ModelForm):
 			'medico': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Medicos'}),
 			'fecha': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'aaaa-mm-dd'}),
 			'hora': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Hora'}),
+
 		}
+
