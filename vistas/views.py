@@ -94,6 +94,19 @@ def agregarPaciente(request):
 	args = {'usuario': usuario, 'form': form}
 	return render(request, 'vistas/agregarPaciente.html', args)
 
+def eliminarPaciente(request, ciPaciente):
+	usuario = get_object_or_404(Usuario, pk=request.session['username'])
+	paciente = Paciente.objects.get(pk=ciPaciente)
+	paciente.delete()
+	if esMedico(usuario.username):
+		return redirect('/vistas/principalMedico/')
+	elif esProfesor(usuario.username):
+		return redirect('/vistas/principalProfesor/')
+	elif esRepresentante(usuario.username):
+		return redirect('/vistas/principalRepresentante/')
+	else:
+		return redirect('/vistas/login/')
+
 '''
 Vistas del representante
 '''
@@ -137,6 +150,13 @@ def agregarARepresentante(request, ciPaciente):
 	args = {'usuario': usuario}
 	return redirect('/vistas/principalRepresentante')
 
+def eliminarCita(request, citaId):
+	usuario = get_object_or_404(Representante, pk=request.session['username'])
+	cita = Cita.objects.get(pk=citaId)
+	cita.delete()
+	return redirect('/vistas/principalRepresentante/')
+
+
 '''
 Vistas del profesor
 '''
@@ -162,6 +182,7 @@ def agregarAlumno(request):
 		form = AgregarPacienteForm()
 	args = {'usuario': usuario, 'form': form}
 	return render(request, 'vistas/agregarPaciente.html', args)
+
 
 '''
 Pagina inicial

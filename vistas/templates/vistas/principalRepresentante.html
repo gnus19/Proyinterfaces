@@ -52,11 +52,11 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li>
+                        <li class="active has-sub">
                             <a class="js-arrow" href="{% url 'vistas:home' %}">
                                 <i class="fas fa-home"></i>Home</a>
                         </li>
-                        <li class="active has-sub">
+                        <li>
                             <a href="{% url 'vistas:perfil' %}">
                                 <i class="fas fa-user"></i>Perfil</a>
                         </li>
@@ -118,6 +118,7 @@
                                                 <th>Doc.Identidad</th>
                                                 <th>Fecha de Nacimiento</th>
                                                 <th>Condicion</th>
+                                                
                                                 <!--<th class="text-right">price</th>
                                                 <th class="text-right">quantity</th>
                                                 <th class="text-right">total</th>-->
@@ -135,6 +136,7 @@
                                                 <td>{{ rep.ci }}</td>
                                                 <td>{{ rep.nacimiento }}</td>
                                                 <td>{{ rep.enfermedad }}</td>
+                                                
                                             </tr>
 
                                             {% endfor %}
@@ -146,7 +148,7 @@
                                 <div class="col-lg-9">
                                     <a href="{% url 'vistas:agregarRepresentado' %}"><button type="button" class="btn btn-primary">Agregar Representado</button></a>
                                   
-                                    <a href="#"><button type="button" class="btn btn-danger">Eliminar Representado</button></a>
+                                    
                                 </div>
                             </div>
                        
@@ -225,6 +227,7 @@
                                                 <th>Medico</th>
                                                 <th>Fecha</th>
                                                 <th>Hora</th>
+                                                <th>Accion</th>
                                                 <!--<th class="text-right">price</th>
                                                 <th class="text-right">quantity</th>
                                                 <th class="text-right">total</th>-->
@@ -237,6 +240,7 @@
                                                 <td>{{ cita.medico.usuario.nombres }}</td>
                                                 <td>{{ cita.fecha }}</td>
                                                 <td>{{ cita.hora }}</td>
+                                                <td><a href="{% url 'vistas:eliminarCita' citaId=cita.id  %}"><button type="button" class="btn btn-danger">Eliminar</button></a></td>
                                             </tr>
                                             {% endfor %}
                                             
@@ -252,7 +256,7 @@
                                     </div>
 
                                     <div class="row m-t-25">
-                                        <a href="#"><button type="button" class="btn btn-danger">Eliminar Cita</button></a>
+                                        
                                     </div>
                                 </div>
 

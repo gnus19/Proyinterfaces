@@ -53,27 +53,27 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li>
-                            <a class="js-arrow" href="{% url 'vistas:home' %}">
+                            <a class="js-arrow" href="#">
                                 <i class="fas fa-home"></i>Home</a>
                         </li>
                         <li>
-                            <a href="{% url 'vistas:perfilMedico' %}">
+                            <a href="{% url 'vistas:perfil' %}">
                                 <i class="fas fa-user"></i>Perfil</a>
                         </li>
                         <li>
-                            <a href="table.html">
+                            <a href="{% url 'vistas:infoNutricional' %}">
                                 <i class="fab fa-nutritionix"></i>Info. Nutricional</a>
                         </li>
                         <li>
-                            <a href="form.html">
+                            <a href="#">
                                 <i class="fas fa-info-circle"></i>Info. General</a>
                         </li>
                         <li class="active has-sub">
-                            <a href="#">
+                            <a href="{% url 'vistas:juegos' %}">
                                 <i class="fas fa-gamepad"></i>Juegos</a>
                         </li>
                         <li>
-                            <a href="map.html">
+                            <a href="#">
                                 <i class="fas fa-signal"></i>Estadisticas</a>
                         </li>
                         <li>

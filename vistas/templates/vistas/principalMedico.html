@@ -52,7 +52,7 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            <a class="js-arrow" href="{% url 'vistas:home' %}">
+                            <a class="js-arrow" href="{% url 'vistas:principalMedico' %}">
                                 <i class="fas fa-home"></i>Home</a>
                         </li>
                         <li>
@@ -117,6 +117,7 @@
                                                 <th>Doc.Identidad</th>
                                                 <th>Fecha de Nacimiento</th>
                                                 <th>Condicion</th>
+                                                <th>Accion</th>
                                                 <!--<th class="text-right">price</th>
                                                 <th class="text-right">quantity</th>
                                                 <th class="text-right">total</th>-->
@@ -134,6 +135,7 @@
                                                 <td>{{ paciente.ci }}</td>
                                                 <td>{{ paciente.nacimiento }}</td>
                                                 <td>{{ paciente.enfermedad }}</td>
+                                                <td><a href="{% url 'vistas:eliminarPaciente' ciPaciente=paciente.ci %}"><button type="button" class="btn btn-danger">Eliminar</button></a></td>
                                             </tr>
 
                                             {% endfor %}
