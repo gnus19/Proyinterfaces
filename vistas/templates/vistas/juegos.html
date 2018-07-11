@@ -39,24 +39,31 @@
 <body class="animsition">
     <div class="page-wrapper">
         
+        <!-- END HEADER MOBILE-->
 
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
                     <!--<img src="" alt="Sistema" />-->
-                    Hola, {{ usuario.usuario.nombres }}
+                    Hola, {{ usuario.nombres }}
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
-                            <a class="js-arrow" href="{% url 'vistas:home' %}">
+                        <li>
+                            <a class="js-arrow" href="#">
                                 <i class="fas fa-tachometer-alt"></i>Home</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="index.html">Home</a>
+                                </li>
+
+                            </ul>
                         </li>
                         <li>
-                            <a href="{% url 'vistas:perfil' %}">
+                            <a href="#">
                                 <i class="fas fa-chart-bar"></i>Perfil</a>
                         </li>
                         <li>
@@ -67,17 +74,13 @@
                             <a href="#">
                                 <i class="far fa-check-square"></i>Info. General</a>
                         </li>
-                        <li>
+                        <li class="active has-sub">
                             <a href="{% url 'vistas:juegos' %}">
                                 <i class="fas fa-calendar-alt"></i>Juegos</a>
                         </li>
                         <li>
                             <a href="#">
                                 <i class="fas fa-map-marker-alt"></i>Estadisticaas</a>
-                        </li>
-                        <li>
-                            <a href="{% url 'vistas:salir' %}">
-                                <i class="fas fa-sign-out-alt"></i>Cerrar Sesión</a>
                         </li>
                         
                     </ul>
@@ -90,7 +93,7 @@
         <div class="page-container">
             <!-- HEADER DESKTOP-->
             <header class="header-desktop">
-
+                
             </header>
             <!-- HEADER DESKTOP END-->
 
@@ -101,92 +104,96 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
-                                    <h2 class="title-1">Pacientes</h2>
+                                    <h2 class="title-1">Juegos en casa</h2>
                                     <!--<button class="au-btn au-btn-icon au-btn--blue">
                                         <i class="zmdi zmdi-plus"></i>add item</button>-->
                                 </div>
                             </div>
                         </div>
                         <div class="row m-t-25">
-                            <div class="table-responsive table--no-card m-b-40">
-                                    <table class="table table-borderless table-striped table-earning">
-                                        <thead>
-                                            <tr>
-                                                <th>Nombres</th>
-                                                <th>Apellidos</th>
-                                                <th>Doc.Identidad</th>
-                                                <th>Fecha de Nacimiento</th>
-                                                <th>Condicion</th>
-                                                <!--<th class="text-right">price</th>
-                                                <th class="text-right">quantity</th>
-                                                <th class="text-right">total</th>-->
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <!--<td class="text-right">$999.00</td>
-                                            <td class="text-right">1</td>
-                                            <td class="text-right">$999.00</td>-->
-                                            
-                                            {% for paciente in usuario.pacientes.all %}
-                                            <tr>
-                                                <td><a href="">{{ paciente.nombres }}</a></td>
-                                                <td>{{ paciente.apellidos }}</td>
-                                                <td>{{ paciente.ci }}</td>
-                                                <td>{{ paciente.nacimiento }}</td>
-                                                <td>{{ paciente.enfermedad }}</td>
-                                            </tr>
-
-                                            {% endfor %}
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                        </div>
-                        <div class="row">
-
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-9">
-                                <h2 class="title-1 m-b-25">Citas</h2>
-                                <div class="table-responsive table--no-card m-b-40">
-                                    <table class="table table-borderless table-striped table-earning">
-                                        <thead>
-                                            <tr>
-                                                <th>Representante</th>
-                                                <th>Fecha</th>
-                                                <th>Hora</th>
-                                                <!--<th class="text-right">price</th>
-                                                <th class="text-right">quantity</th>
-                                                <th class="text-right">total</th>-->
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                            {% for cita in citas %}
-                                            <tr>
-                                                <td>{{ cita.representante.usuario.nombres }}</td>
-                                                <td>{{ cita.fecha }}</td>
-                                                <td>{{ cita.hora }}</td>
-                                            </tr>
-                                            {% endfor %}
-                                            
-                                        </tbody>
-                                    </table>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="overview-item overview-item--c4">
+                                    <label>Aplausos equivocados</label>
+                                    <figure><img src="{% static 'principal/images/aplausos-equivocados.jpg' %}" width="200" height="40"></figure>Mejora sus habilidades sociales.
+                                    <a href="https://juegos.cosasdepeques.com/aplausos-equivocados.html">Ver instrucciones</a>
                                 </div>
                             </div>
-                            <div class="col-lg-3">
-                                <h2 class="title-1 m-b-25">Acciones</h2>
-                                <div class="col-lg-9">
-                                    <div class="row m-t-25">
-                                        <a href="{% url 'vistas:agregarPaciente' %}"><button type="button" class="btn btn-primary">Agregar Paciente</button></a>
-                                    </div>
+                            
 
-                                    <div class="row m-t-25">
-                                        <a href="#"><button type="button" class="btn btn-danger">Eliminar Paciente</button></a>
-                                    </div>
+
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="overview-item overview-item--c4">
+                                    <label>El despestrdor</label>
+                                    <figure><img src="{% static 'principal/images/el-despertador.png' %}" width="200" height="40"></figure>Ayuda a ganar confianza.
+                                    <a href="https://juegos.cosasdepeques.com/el-despertador.html">Ver Instrucciones</a>
                                 </div>
+                            </div>
 
-                                <!--<div class="au-card au-card--bg-blue au-card-top-countries m-b-40">
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="overview-item overview-item--c4">
+                                    <label>Adivina el obejto</label>
+                                    <figure><img src="{% static 'principal/images/adivina.jpg' %}" width="200" height="40"></figure>Desarrolla la capacidad sensorial.
+                                    <a href="https://juegos.cosasdepeques.com/adivina-el-objeto.html">Ver Instrucciones</a>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="overview-item overview-item--c4">
+                                    <label>La llave Romana</label>
+                                    <figure><img src="{% static 'principal/images/llave.png' %}" width="200" height="40"></figure>Desarrolla la memoria.
+                                    <a href="https://https://juegos.cosasdepeques.com/la-llave-de-roma.html">Ver Instrucciones</a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="overview-wrap">
+                                    <h2 class="title-1">Juegos  Online</h2>
+                                    <!--<button class="au-btn au-btn-icon au-btn--blue">
+                                        <i class="zmdi zmdi-plus"></i>add item</button>-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row m-t-25">
+                            
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="overview-item overview-item--c2">
+                                    <label>Nuestras emociones</label>
+                                    <figure><img src="{% static 'principal/images/emociones.png' %}" width="200" height="40"></figure>Descubre las emociones.
+                                    <a href="http://www.czpsicologos.es/evenbettergames/jugar.php?juego=emociones">Jugar</a>
+                                </div>
+                            </div>
+                                
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="overview-item overview-item--c2">
+                                    <label>Cada oveja con su pareja</label>
+                                    <figure><img src="{% static 'principal/images/ovejas.png' %}" width="200" height="40"></figure>Reconoce las emociones.
+                                    <a href="http://www.czpsicologos.es/evenbettergames/jugar.php?juego=cadaoveja">Jugar</a>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="overview-item overview-item--c2">
+                                    <label>Esfumate!</label>
+                                    <figure><img src="{% static 'principal/images/esfumate.png' %}" width="200" height="40"></figure>Diferencia las emociones.
+                                    <a href="http://www.czpsicologos.es/evenbettergames/jugar.php?juego=esfumate">Jugar</a>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="overview-item overview-item--c2">
+                                    <label>Ruleta de las emociones</label>
+                                    <figure><img src="{% static 'principal/images/ruleta.png' %}" width="200" height="40"></figure>Reconoce cuando sentimos emociones.
+                                    <a href="http://www.czpsicologos.es/evenbettergames/jugar.php?juego=ruleta">Jugar</a>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-3">
+                                <!--<h2 class="title-1 m-b-25">Puntuaciones</h2>
+                                <div class="au-card au-card--bg-blue au-card-top-countries m-b-40">
                                     <div class="au-card-inner">
                                         <div class="table-responsive">
                                             <table class="table table-top-countries">
@@ -226,7 +233,6 @@
                                                 </tbody>
                                             </table>
                                         </div>
-
                                     </div>
                                 </div>-->
                             </div>

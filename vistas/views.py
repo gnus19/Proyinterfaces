@@ -51,6 +51,21 @@ def registro(request):
 		form = RegistroUsuarioForm()
 	return render(request, 'vistas/registro.html', {'form': form})
 
+'''
+Informacion nutricional
+'''
+def infoNutricional(request):
+	return render(request, 'vistas/infoNutricional.html', {})
+
+'''
+Juegos
+'''
+def juegos(request):
+	usuario = get_object_or_404(Usuario, pk=request.session['username'])
+
+	
+	args = {'usuario': usuario}
+	return render(request, 'vistas/juegos.html', args)
 
 '''
 Vistas del medico
