@@ -22,6 +22,7 @@ urlpatterns = [
 	url(r'^principalProfesor/agregarAlumno/$', views.agregarAlumno, name='agregarAlumno'),
 	url(r'^home/$', views.home, name='home'),
 	url(r'^perfil/$', views.perfil, name = 'perfil'),
-	url(r'^perfilPaciente/(?P<ciPaciente>.+)/$', views.perfilPaciente, name='perfilPaciente')
+	url(r'^perfilPaciente/(?P<ciPaciente>.+)/$', views.perfilPaciente, name='perfilPaciente'),
+	url(r'^listajuegos/$', views.listajuegos, name='listajuegos'),
 
 ]

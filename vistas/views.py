@@ -211,3 +211,14 @@ def perfilPaciente(request, ciPaciente):
 	args = {'form': form, 'usuario': usuario}
 	return render(request, 'vistas/perfilPaciente.html', args)
 
+
+'''
+Juegos
+'''
+def listajuegos(request):
+	# usuario = get_object_or_404(Usuario, pk=request.session['username'])
+
+
+	# args = {'usuario': usuario}
+	return render(request, 'vistas/juegoscat.html',{})
+
